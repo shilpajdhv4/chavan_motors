@@ -9,7 +9,7 @@
 @endif
 <section class="content">
       <?php $x = 1; ?>
-    <form class="form-horizontal" id="design-form" action="{{url('update_dse_data')}}" method="post" >
+    <form class="form-horizontal" id="design-form" action="{{url('update_dse_data1')}}" method="post" >
         {{ csrf_field() }}
     <div class="row">
         <div class="col-xs-12">

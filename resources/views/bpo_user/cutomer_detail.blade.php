@@ -296,10 +296,12 @@ $(document).ready(function () {
           $( ".automplete-1" ).autocomplete( "option", "source", availableTutorials );
       });
 
-
-      $("body").on("click",".remove",function(){ 
-          $(this).parents(".control-group").remove();
+       $("body").on("click",".remove",function(){ 
+          $(this).parents(".form-group").remove();
       });
+//      $("body").on("click",".remove",function(){ 
+//          $(this).parents(".control-group").remove();
+//      });
 
 });
 </script>

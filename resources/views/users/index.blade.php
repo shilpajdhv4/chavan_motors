@@ -42,11 +42,12 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $key => $user)
+                    <?php $branch_name = \App\Branch::select('branch_name')->where(['branch_id'=>$user->branch_id])->first(); ?>
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->mobile_no }}</td>
-                        <th>{{ $user->branch_name}}</th>
+                        <td>{{ @$branch_name->branch_name}}</td>
                         <td>
                           @if(!empty($user->getRoleNames()))
                             @foreach($user->getRoleNames() as $v)

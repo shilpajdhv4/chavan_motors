@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function validateMobile($id) {
+        echo $id;exit;
+        $id = trim($id);
+        if (\App\User::where('mobile_no', $id)->exists()) {
+            echo "Mobile No Already exists!";
+        }
+    }
 }

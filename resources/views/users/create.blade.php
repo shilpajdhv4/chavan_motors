@@ -67,11 +67,12 @@
     <div class="form-group">
         <label for="userName" class="col-sm-2 control-label">Role<span style="color:red"> * </span></label>
         <div class="col-sm-4">
-            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control select2','multiple')) !!}
+            
+            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control select2')) !!}
         </div>
         <label for="userName" class="col-sm-2 control-label">Mobile No.<span style="color:red"> * </span></label>
         <div class="col-sm-4">
-            <input type="text" class="form-control"  placeholder="Mobile No" value="" id="mobile_no" name="mobile_no"  >
+            <input type="text" class="form-control" onkeypress="return phoneno(event)" placeholder="Mobile No" value="" id="mobile_no" name="mobile_no"  >
         </div>
     </div>
     <div class="form-group">
@@ -96,9 +97,48 @@
     </div>
 </section>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type='text/javascript' src='js/jquery.validate.js'></script>
 <script>
 $(document).ready(function () {
     $('.select2').select2();
+    
+    $("#mobile_no").focusout(function () {
+        var email = $(this).val();
+        $.ajax({
+            url: 'mobile-validate/' + email,
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+                $("#mobile_validate").html(data);
+                if (data != "") {
+                    $("#reg_mobileno").val("");
+                }
+            }
+        });
+    });
+    
     })
+    
+    function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+    
+    function phoneno(){   
+            $('#mobile_no').keypress(function(e) {
+                var length = jQuery(this).val().length;
+       if(length > 9) {
+            return false;
+       } else if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+       } else if((length == 0) && (e.which == 48)) {
+            return false;
+       }
+            });
+        }
     </script>
 @endsection

@@ -11,6 +11,7 @@ use Excel;
 use Samples;
 use App\Imports\ImportUsers;
 use Illuminate\Support\Facades\Auth;
+use Phpmailer;
 
 class CallDetailController extends Controller
 {
@@ -42,7 +43,7 @@ class CallDetailController extends Controller
         ));
  
         if($request->hasFile('sample_file')){
-            $bpoMaster = array();
+            $bpoMaster = $mobile_arr = array();
             $extension = File::extension($request->sample_file->getClientOriginalName());
             $inputFileName = $request->file('sample_file');//'excel_files/CDR.xlsx';
                 if ($extension == "xlsx" || $extension == "xls" || $extension == "csv") {
@@ -73,6 +74,16 @@ class CallDetailController extends Controller
                 $bpoMaster['uploaded_branch_id'] = Auth::user()->id;
                 $bpoMaster['uploaded_date'] = date('Y-m-d');
                 $bpoMaster['uploaded_time'] = date('H:i:s');
+                
+                if(!empty($requestData['sample_file'])) {
+                    $design = $requestData['sample_file'];
+                    $filename = $calling_set_name.".".$design->getClientOriginalExtension();
+//                        echo $filename;exit;
+                    $destination= "branch_upload_csv";
+                    $design->move($destination,$filename);
+                    $bpoMaster['file_name'] = $filename;
+//                        exit;
+                }
 //                 echo "<pre>";print_r($bpoMaster);exit;
                 $bpo_master = \App\BPODetailMaster::create($bpoMaster);
 //                echo "<pre>";print_r($bpoMaster);exit;
@@ -84,6 +95,8 @@ class CallDetailController extends Controller
 //                    In Built Format
                     foreach ($array[0] as $key => $value) {
                         if($i > 0 && !empty($value[0])){
+                            if(!in_array(@$value[7], $mobile_arr)){
+                            $mobile_arr[] = @$value[7];
                                 $insert[] = [
                                 'date'=>date('Y-m-d'),
                                 'dealer_location' => @$value[0],
@@ -116,8 +129,11 @@ class CallDetailController extends Controller
                                 'bpo_master_id'=> $bpo_master->bpo_id
                                 ];
                         }
+                        }
                         $i++;
                     }
+                    
+                    
 //                    echo "<pre>";print_r($insert);exit;
                     if(!empty($insert)){
                         $insertData = DB::table('tbl_bpo_details')->insert($insert);
@@ -129,6 +145,49 @@ class CallDetailController extends Controller
                         }
                     }
                 }
+                
+                require_once('phpmailer/PHPMailerAutoload.php');
+                $mail = new PHPMailer(true);
+                $mail->IsSMTP();
+                $mail->Host = "smtp.gmail.com"; // SMTP server
+                $mail->Port = 465;
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure = "ssl";
+                $mail->Username = 'asrindustry2019@gmail.com';
+                $mail->Password = 'ASR@1234'; // Set mailer to use SMTP
+                $mail->From = "asrindustry2019@gmail.com";
+                $mail->FromName = "ASR INDUSTRIES";
+
+        //        $mail->addAddress('shilpa.jadhav@iping.in');
+        //        $mail->addAddress('shnavghare@asrindustries.com');
+        //        $mail->addAddress('shilpa.jadhav@iping.in');
+                $mail->isHTML(true);
+                $body = 'Hello All,<br/><br/>'
+                    . 'Please find attachment of Daily Analysis Report for till';
+               // $path = 'excel/daily_analysis_report/DPAR - Hind WRD - abc.xlsx';
+               // $mail->addAttachment($path);
+                $mail->Subject = "DPAR - Hind WRD";
+                $mail->Body = $body;
+                $mail->AltBody = "This is the plain text version of the email content";
+                
+//                $email_arr = 
+//                
+//                foreach($email_arr as $e)
+//                {
+//                    $mail->addAddress($e);
+//                }
+                $mail->addAddress('shilpa.jadhav@iping.in');
+        //        echo "<pre>"; print_r($mail);exit;
+                $mail->Subject = "New Data";
+                $mail->Body = $body;
+                $mail->AltBody = "This is the plain text version of the email content";
+
+                if (!$mail->send()) {
+                    echo 'Mailer Error: ' . $mail->ErrorInfo;
+                }
+//                else{
+//                    return 1;
+//                }
         }
         Session::flash('alert-success', 'Uploaded Successfully.');
 //        \App\Order::where('order_id','=',$order_id)->update(['design_status'=>'1']);
@@ -190,4 +249,13 @@ class CallDetailController extends Controller
         return redirect('assign_data_sales_executive');
        // echo "<pre>";print_r($requestData);exit;
     }
+    
+    public function getUploadecsv(){
+        $branch_id = Auth::user()->id;
+        $uploade_file = \App\BPODetailMaster::select('bpo_id','file_name','calling_set_name','uploaded_date')->where(['uploaded_branch_id'=>$branch_id])->orderBy('uploaded_date')->get();
+//        echo "<pre>";print_r($uploade_file);exit;
+        return view('branch_maneger.uploaded_file',['uploade_file'=>$uploade_file]);
+    }
+    
+    
 }

@@ -127,87 +127,135 @@ $id = Auth::user()->id;
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label" >Dealer Location</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Name" value="{{$cust_detail->dealer_location}}" id="dealer_location" name="dealer_location"   >
+                                <input type="text" class="form-control"  placeholder="Dealer Location" value="{{$cust_detail->dealer_location}}" id="dealer_location" name="dealer_location"   >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Enquiry No.</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Middle Name" value="{{$cust_detail->enquiry_no}}" id="enquiry_no" name="enquiry_no"   >
+                                <input type="text" class="form-control"  placeholder="Enquiry No" value="{{$cust_detail->enquiry_no}}" id="enquiry_no" name="enquiry_no"   >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Enquiry Date</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Last Name" value="{{$cust_detail->enquiry_date}}" id="enquiry_date" name="enquiry_date"   >
+                                <input type="text" class="form-control"  placeholder="Enquiry Date" value="{{$cust_detail->enquiry_date}}" id="enquiry_date" name="enquiry_date"   >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Team Lead Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Address 1" value="{{$cust_detail->team_lead_name}}" id="team_lead_name" name="team_lead_name"   >
+                                <input type="text" class="form-control"  placeholder="Team Lead Name" value="{{$cust_detail->team_lead_name}}" id="team_lead_name" name="team_lead_name"   >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">DSE Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Address 2" value="{{$cust_detail->dse_name}}" id="dse_name" name="dse_name"   >
+                                <input type="text" class="form-control"  placeholder="DSE Name" value="{{$cust_detail->dse_name}}" id="dse_name" name="dse_name"   >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Prospect Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Mobile No" value="{{$cust_detail->prospect_name}}" id="prospect_name" name="prospect_name"  >
+                                <input type="text" class="form-control"  placeholder="Prospect Name" value="{{$cust_detail->prospect_name}}" id="prospect_name" name="prospect_name"  >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Address</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="ALT Mobile No" value="{{$cust_detail->add_1}}" id="add_1" name="add_1"  >
+                                <input type="text" class="form-control"  placeholder="Address" value="{{$cust_detail->add_1}}" id="add_1" name="add_1"  >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Mobile Number</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Email ID" value="{{$cust_detail->mobile_no}}" id="mobile_no" name="mobile_no"  >
+                                <input type="text" class="form-control"  placeholder="Mobile Number" value="{{$cust_detail->mobile_no}}" id="mobile_no" name="mobile_no"  >
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Email Id</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Model" value="{{$cust_detail->email_id}}" id="email_id" name="email_id"  >
+                                <input type="text" class="form-control"  placeholder="Email Id" value="{{$cust_detail->email_id}}" id="email_id" name="email_id"  >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Model Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Variant Name" value="{{$cust_detail->model_name}}" id="model_name" name="model_name"  >
+                                <input type="text" class="form-control"  placeholder="Model Name" value="{{$cust_detail->model_name}}" id="model_name" name="model_name"  >
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Variant Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="City" value="{{$cust_detail->variant_name}}" id="variant_name" name="variant_name"  >
+                                <input type="text" class="form-control"  placeholder="Variant Name" value="{{$cust_detail->variant_name}}" id="variant_name" name="variant_name"  >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Financier Name</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="State" value="{{$cust_detail->financer_name}}" id="financer_name" name="financer_name"   >
+                                <input type="text" class="form-control"  placeholder="Financier Name" value="{{$cust_detail->financer_name}}" id="financer_name" name="financer_name"   >
                             </div>
                             
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Enquiry Status</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="City" value="{{$cust_detail->enquiry_status}}" id="enquiry_status" name="enquiry_status"  >
+                                <input type="text" class="form-control"  placeholder="Enquiry Status" value="{{$cust_detail->enquiry_status}}" id="enquiry_status" name="enquiry_status"  >
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Source</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="State" value="{{$cust_detail->source}}" id="source" name="source"   >
+                                <input type="text" class="form-control"  placeholder="Source" value="{{$cust_detail->source}}" id="source" name="source"   >
                             </div>
                             
                         </div>
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">Buyer Type</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="City" value="{{$cust_detail->buyer_type}}" id="buyer_type" name="buyer_type"  >
+                                <select id="buyer_type" name="buyer_type" class="form-control select2"  required>
+                                    <option value="">-- Select Buyer Type --</option>
+                                    <option value="First Time Buyer" <?php if($cust_detail->buyer_type == "First Time Buyer") echo "selected"; ?>>First Time Buyer</option>
+                                    <option value="Additional Buyer" <?php if($cust_detail->buyer_type == "Additional Buyer") echo "selected"; ?>>Additional Buyer</option>
+                                    <option value="Replacement Buyer" <?php if($cust_detail->buyer_type == "Replacement Buyer") echo "selected"; ?>>Replacement Buyer</option>
+                                </select>
+                                <!--<input type="text" class="form-control"  placeholder="City" value="{{$cust_detail->buyer_type}}" id="buyer_type" name="buyer_type"  >-->
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Test Drive Given</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="State" value="{{$cust_detail->test_drive_given}}" id="test_drive_given" name="test_drive_given"   >
+                                <input type="text" class="form-control"  placeholder="Test Drive Given" value="{{$cust_detail->test_drive_given}}" id="test_drive_given" name="test_drive_given"   >
                             </div>
-                            
                         </div>
+                        <div id="by_type">
+                            <div class="form-group">
+                                <label for="userName" class="col-sm-2 control-label">Make</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Make" value="{{$cust_detail->make}}" id="make" name="make"   >
+                                </div>
+                                <label for="userName" class="col-sm-2 control-label">Model</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Model" value="{{$cust_detail->model}}" id="model" name="model"   >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName" class="col-sm-2 control-label">Color</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Color" value="{{$cust_detail->color}}" id="color" name="color"   >
+                                </div>
+                                <label for="userName" class="col-sm-2 control-label">Region No</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Region No" value="{{$cust_detail->region_no}}" id="region_no" name="region_no"   >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName" class="col-sm-2 control-label">Valuation Done</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Valuation Done" value="{{$cust_detail->valuation_done}}" id="valuation_done" name="valuation_done"   >
+                                </div>
+                                <label for="userName" class="col-sm-2 control-label">Valuator</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Valuator" value="{{$cust_detail->valuator}}" id="valuator" name="valuator"   >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName" class="col-sm-2 control-label">Expected Price</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Expected Price" value="{{$cust_detail->expected_price}}" id="expected_price" name="expected_price"   >
+                                </div>
+                                <label for="userName" class="col-sm-2 control-label">Offered Price</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  placeholder="Offered Price" value="{{$cust_detail->offered_price}}" id="offered_price" name="offered_price"   >
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="userName" class="col-sm-2 control-label">First Date</label>
                             <div class="col-sm-4">
@@ -216,6 +264,20 @@ $id = Auth::user()->id;
                              <label for="userName" class="col-sm-2 control-label">Activity</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control"  placeholder="Activity" value="{{$cust_detail->activity}}" id="activity" name="activity"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName" class="col-sm-2 control-label">Follow Up Date</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control"  placeholder="Follow Up Date" value="{{$cust_detail->f_visit_date}}" id="follow_up_date" name="follow_up_date"  >
+                            </div>
+                            <label for="userName" class="col-sm-2 control-label">Order Status</label>
+                            <div class="col-sm-3">
+                                <select id="order_status" name="order_status" class="form-control select2"  >
+                                    <option value="">-- Select Status --</option>
+                                    <option value="Loss">Loss</option>
+                                    <option value="Close">Close</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row col-sm-12 input-group control-group after-add-more">
@@ -240,15 +302,6 @@ $id = Auth::user()->id;
                         </div>
                     </div>
                         
-                        <?php
-                        $json_detail = json_decode($cust_detail->prev_bpo_user_detail,true);
-//                        echo "<pre>";print_r($json_detail);exit;
-                        ?>
-                        
-                        <?php
-//                        echo "hii";exit;
-                        $x =1;
-                        if(!empty($json_detail)){ ?>
                         <table class="table table-bordered table-striped dataTable no-footer">
                             <tr>
                                 <th>Sr No</th>
@@ -256,22 +309,23 @@ $id = Auth::user()->id;
                                 <th>Remark</th>
                                 <th>User</th>
                             </tr>
+                        <?php
+                        $json_detail = json_decode($cust_detail->prev_bpo_user_detail,true);
+                        $x =1;
+                        if(!empty($json_detail)){ ?>
                             <?php foreach($json_detail as $json){  
-                                if(isset($json->assign_bpo_user_id )){
-//                                 echo "hii";exit;
-                            $user_name = App\User::select('name')->where(['id'=>$json['assign_bpo_user_id']])->first();
+                                if(isset($json['assign_bpo_user_id'] )){
+                                $user_name = App\User::select('name')->where(['id'=>$json['assign_bpo_user_id']])->first();
                             ?>
-                            <tr>
-                                <td>{{$x++}}</td>
-                                <td>{{$json['status']}}</td>
-                                <td>{{$json['bop_user_remark']}}</td>
-                                <td>{{$user_name->name}}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{$x++}}</td>
+                                    <td>{{$json['status']}}</td>
+                                    <td>{{$json['bop_user_remark']}}</td>
+                                    <td>{{$user_name->name}}</td>
+                                </tr>
                             <?php  } }
-                        }
-                        
+                            }   
                         if($cust_detail->bop_user_status != "") { 
-//                            echo "hiiiii";exit;
                             $user_name = App\User::select('name')->where(['id'=>$cust_detail->assign_bpo_user_id])->first();
                             ?>
                             <tr>
@@ -280,10 +334,36 @@ $id = Auth::user()->id;
                                 <td>{{$cust_detail->bop_user_remark}}</td>
                                 <td>{{$user_name->name}}</td>
                             </tr>
-                        </table>
-                        <?php } //echo "hii";exit;//else { ?>
-                    
-                        <?php // } ?>
+                        <?php } ?>
+                        <!--DSE Status-->    
+                        <?php
+                        $json_detail = json_decode($cust_detail->prev_telle_caller_user_detail,true);
+                      //  $x =1;
+                        if(!empty($json_detail)){ ?>
+                            <?php foreach($json_detail as $json){  
+                                if(isset($json['assign_bpo_user_id'] )){
+                                $user_name = App\User::select('name')->where(['id'=>$json['assign_bpo_user_id']])->first();
+                            ?>
+                                <tr>
+                                    <td>{{$x++}}</td>
+                                    <td>{{$json['status']}}</td>
+                                    <td>{{$json['bop_user_remark']}}</td>
+                                    <td>{{$user_name->name}}</td>
+                                </tr>
+                            <?php  } }
+                            }   
+                        if($cust_detail->telle_caller_status != "") { 
+                            $user_name = App\User::select('name')->where(['id'=>$cust_detail->assign_telle_caller_id])->first();
+                            ?>
+                            <tr>
+                                <td>{{$x++}}</td>
+                                <td>{{$cust_detail->telle_caller_status}}</td>
+                                <td>{{$cust_detail->telle_caller_remark}}</td>
+                                <td>{{$user_name->name}}</td>
+                            </tr>
+                        <?php } ?>
+                            
+                    </table>
                     <div class="box-footer">
                         <button type="submit"  id="btnsubmit" class="btn btn-success">Save</button>
                         <a href="{{url('branch_list')}}" class="btn btn-danger" >Cancel</a>
@@ -304,10 +384,27 @@ $id = Auth::user()->id;
 <script type="text/javascript">
    
 $(document).ready(function () {
+    
     $('select').select2();
 //    $("#brand_head_id").on("change",function(){
 //        alert();
 //    })
+
+$('#buyer_type').on('change', function() {
+    var type = $("#buyer_type").val();
+//    alert(type);
+      if ( type == 'First Time Buyer')
+      //.....................^.......
+      {
+          $("#by_type").hide();
+        
+      }
+      else
+      {
+         $("#by_type").show();
+      }
+    });
+$("#buyer_type").trigger("change");
 
       $(".add-more").click(function(){ 
 //          var html = $(".copy").html();
@@ -318,7 +415,7 @@ $(document).ready(function () {
 
 
       $("body").on("click",".remove",function(){ 
-          $(this).parents(".control-group").remove();
+          $(this).parents(".form-group").remove();
       });
 
 });

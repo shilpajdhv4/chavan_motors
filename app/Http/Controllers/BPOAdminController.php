@@ -25,20 +25,20 @@ class BPOAdminController extends Controller
     public function getList(){
 //        $waiting = \App\BPODetailMaster::get();
         $waiting = DB::table('tbl_bpo_detail_master')
-                 ->select('tbl_bpo_detail_master.*','users.id','users.name')
+                 ->select('tbl_bpo_detail_master.*','users.id','users.name','users.branch_id')
                  ->leftjoin('users','users.id','tbl_bpo_detail_master.uploaded_branch_id')
                  ->whereNull('data_set_status')
                  ->orderBy('bpo_id','DESC')
                  ->get();
-//        echo "<pre>";print_r($waiting);//exit;
+//        echo "<pre>";print_r($waiting);exit;
         $inprocess = DB::table('tbl_bpo_detail_master')
-                 ->select('tbl_bpo_detail_master.*','users.id','users.name')
+                 ->select('tbl_bpo_detail_master.*','users.id','users.name','users.branch_id')
                  ->leftjoin('users','users.id','tbl_bpo_detail_master.uploaded_branch_id')
                  ->where(['data_set_status'=>1])
                  ->orderBy('bpo_id','DESC')
                  ->get();
         $completed = DB::table('tbl_bpo_detail_master')
-                 ->select('tbl_bpo_detail_master.*','users.id','users.name')
+                 ->select('tbl_bpo_detail_master.*','users.id','users.name','users.branch_id')
                  ->leftjoin('users','users.id','tbl_bpo_detail_master.uploaded_branch_id')
                  ->where(['data_set_status'=>2])
                  ->orderBy('bpo_id','DESC')

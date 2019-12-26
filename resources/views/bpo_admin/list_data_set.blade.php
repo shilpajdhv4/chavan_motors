@@ -41,16 +41,19 @@
                         <tr>
                             <th style="width: 10px">#</th>
                             <th>Data Set Name</th>
+                            <th>User Name</th>
                             <th>Branch Name</th>
                             <th>Upload Date</th>
                             <th>Update Status</th>
                             <th>Action</th>
                         </tr>
                         @foreach($waiting as $wt)
+                        <?php $branch_name = App\Branch::select('branch_name')->where(['branch_id'=>$wt->branch_id])->first(); ?>
                         <tr id="{{$wt->bpo_id}}">
                             <td>{{$i++}}</td>
                             <td>{{$wt->calling_set_name}}</td>
                             <td>{{$wt->name}}</td>
+                            <td>{{$branch_name->branch_name}}</td>
                             <td>{{$wt->uploaded_date}}</td>
                             <td><button class="btn btn-block btn-success btn-xs status_detail start_status" >Update Status</button></td>
                             <td><a href="{{url('download_set_list?id='.$wt->bpo_id)}}" class="btn btn-block btn-success btn-xs">Download</button></td>

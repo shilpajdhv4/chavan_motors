@@ -55,11 +55,11 @@
                             </div>
                             <label for="userName" class="col-sm-2 control-label">Mobile No.</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control"  placeholder="Mobile No." value="" id="mobile_no" name="mobile_no"  required >
+                                <input type="text" class="form-control" onkeypress="return phoneno(event)" placeholder="Mobile No." value="" id="mobile_no" name="mobile_no"  required >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="userName" class="col-sm-2 control-label">Branch Head</label>
+<!--                            <label for="userName" class="col-sm-2 control-label">Branch Head</label>
                             <div class="col-sm-4">
                                 <select class="form-control select2" style="width: 100%;" name="brand_head_id" id="brand_head_id">
                                     <option value="">-- Select Branch Head --</option>
@@ -67,7 +67,7 @@
                                     <option value="{{$u->id}}">{{$u->name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div>-->
                             <label for="userName" class="col-sm-2 control-label">Branch Address</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control"  placeholder="Branch Address" value="" id="branch_address" name="branch_address"  required >
@@ -97,5 +97,18 @@ $(document).ready(function () {
 //        alert();
 //    })
 });
+
+function phoneno(){   
+            $('#mobile_no').keypress(function(e) {
+                var length = jQuery(this).val().length;
+       if(length > 9) {
+            return false;
+       } else if(e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+       } else if((length == 0) && (e.which == 48)) {
+            return false;
+       }
+            });
+        }
 </script>
 @endsection

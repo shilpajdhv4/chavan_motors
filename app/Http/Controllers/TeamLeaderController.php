@@ -45,7 +45,7 @@ class TeamLeaderController extends Controller
      
     public function updateAssign(Request $request){
         $requestData = $request->all();
-//        echo   "<pre>";print_r($requestData);exit;
+//        echo "<pre>";print_r($requestData);exit;
         if(count($requestData['assign_tl'])>0){
             foreach($requestData['assign_tl'] as $tl){
                 \App\BPODetail::where(['id'=>$tl])->update(['assign_dse_id'=>$requestData['assign_dse_id'],'assign_dse_status'=>1]);

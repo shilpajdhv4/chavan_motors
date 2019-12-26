@@ -18,6 +18,6 @@ class BPODetailMaster extends Model
     public $table = "tbl_bpo_detail_master";
     
     protected $fillable = [
-        'calling_set_name', 'uploaded_branch_id','uploaded_date','uploaded_time','data_set_status'
+        'calling_set_name', 'uploaded_branch_id','uploaded_date','uploaded_time','data_set_status','file_name'
     ];
 }

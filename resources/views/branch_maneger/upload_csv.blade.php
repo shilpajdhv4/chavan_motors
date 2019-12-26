@@ -30,13 +30,13 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                               </div>
-                            <input type="text" name="upload_date" id="upload_date" class="form-control datepicker" placeholder="DD-MM-YYYY" >
+                            <input type="text" name="upload_date" id="upload_date" class="form-control datepicker" placeholder="DD-MM-YYYY" required >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">Upload File</label>
                         <div class="col-md-4">
-                            <input type="file" name="sample_file" id="design_file"  class="form-control" >
+                            <input type="file" name="sample_file" id="design_file"  class="form-control" required >
                         </div>
                     </div>
                     <span id="file_validate" style="color:red"></span>

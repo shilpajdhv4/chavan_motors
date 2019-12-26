@@ -24,17 +24,18 @@
           </a>
           <ul class="treeview-menu" <?php if(Request::is('users') || Request::is('users/create') || Request::is('users/{id}/edit') || Request::is('roles') ||  Request::is('roles/create') || Request::is('roles/{id}/edit') ||
                   Request::is('enq_location_list') || Request::is('enq_location_add') || Request::is('enq-location-edit') || Request::is('branch_list') || Request::is('branch_add') || Request::is('branch_edit')){ ?> style="display:block" <?php } ?>>
-            @can('users-index')
-            <li <?php if(Request::is('users') || Request::is('users/create') || Request::is('users/{id}/edit')) { ?>class="active" <?php } ?>><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i>Manage Users</a></li>
-            @endcan
+           
             @can('role-list')
-            <li <?php if(Request::is('roles') ||  Request::is('roles/create') || Request::is('roles/{id}/edit')) { ?>class="active" <?php } ?>><a href="{{route('roles.index')}}"><i class="fa fa-circle-o"></i>Manage Role</a></li>
+            <!--<li <?php // if(Request::is('roles') ||  Request::is('roles/create') || Request::is('roles/{id}/edit')) { ?>class="active" <?php // } ?>><a href="{{route('roles.index')}}"><i class="fa fa-circle-o"></i>Manage Role</a></li>-->
             @endcan
             @can('enq_location_list')
             <li <?php if(Request::is('enq_location_list') || Request::is('enq_location_add') || Request::is('enq-location-edit')) { ?>class="active" <?php } ?>><a href="{{url('enq_location_list')}}"><i class="fa fa-circle-o"></i> <span>Location</span></a></li>
             @endcan
             @can('branch_list')
             <li <?php if(Request::is('branch_list') || Request::is('branch_add') || Request::is('branch_edit')) { ?>class="active" <?php } ?>><a href="{{url('branch_list')}}"><i class="fa fa-circle-o"></i><span>Branch</span></a></li>
+            @endcan
+             @can('users-index')
+            <li <?php if(Request::is('users') || Request::is('users/create') || Request::is('users/{id}/edit')) { ?>class="active" <?php } ?>><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i>Manage Users</a></li>
             @endcan
             <!--<li <?php // if(Request::is('products.index')) { ?>class="active" <?php // } ?>><a href="{{route('products.index')}}"><i class="fa fa-circle-o"></i>Manage Product</a></li>-->
           </ul>
@@ -46,7 +47,11 @@
           </a>
         </li>
         @endcan
-        
+        <li>
+            <a href="{{url('download_uploaded_csv')}}">
+                <i class="fa fa-circle-o"></i> <span>Download Uploaded CSV</span>
+          </a>
+        </li>
         @can('data_set_list')
         <li>
             <a href="{{url('data_set_list')}}">

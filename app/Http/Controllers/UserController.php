@@ -40,6 +40,7 @@ class UserController extends Controller
     }
 
 
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -47,6 +48,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $user = \Auth::user();
         $roles = Role::pluck('name','name')->all();
         $branch = \App\Branch::select('branch_id','branch_name')->get();
         return view('users.create',compact('roles','branch'));
@@ -63,7 +65,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+//            'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'roles' => 'required',
             'mobile_no'=>'required'

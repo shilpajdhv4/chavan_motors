@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products','ProductController');
     Route::get('upload_csv','CallDetailController@index');
     Route::post('upload_csv','CallDetailController@saveDesign');
-    
+    Route::get('download_uploaded_csv','CallDetailController@getUploadecsv');
     //Add Location
     Route::get('enq_location_list','LocationController@listLocation');
     Route::get('enq_location_add','LocationController@addLocation');
@@ -75,9 +75,11 @@ Route::group(['middleware' => ['auth']], function() {
     
     //Team Leader
     Route::get('get_tl_data','TeamLeaderController@getTeamLeaderData');
-    Route::post('update_dse_data','TeamLeaderController@updateAssign');
+    Route::post('update_dse_data1','TeamLeaderController@updateAssign');
     
     //DSE Leader
     Route::get('get_dse_data','DSEController@getDSEdata');
     Route::post('update_dse_data','DSEController@updateDetails');
+    
+    Route::get('mobile-validate','HomeController@validateMobile');
 });
